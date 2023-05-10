@@ -86,6 +86,7 @@ public class IndependentProject implements ActionListener {
         b.setFont(new Font("Sansferif", Font.PLAIN, 42));
         m.setFont(new Font("Sansferif", Font.PLAIN, 42));
         c.setFont(new Font("Sansferif", Font.PLAIN, 42));
+
         */
 
         // Adds buttons to window in specific order:
