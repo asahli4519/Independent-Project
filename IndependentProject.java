@@ -19,14 +19,12 @@ import java.util.Scanner;
 // window.add(num2Field);
 // window.add(answer);
 // answer.setFont(new Font("SansSerif",Font.PLAIN,20));
+// JTextField num1Field;
+// JTextField num2Field;
+// JLabel answer;
 
 public class IndependentProject implements ActionListener {
 
-    // Setup:
-    JFrame window = new JFrame("Graphs"); // Graph pop-up
-    JTextField num1Field;
-    JTextField num2Field;
-    JLabel answer;
     Scanner myScanner = new Scanner(System.in); // Creates scanner for user number inputs
 
     // Main method:
@@ -51,7 +49,7 @@ public class IndependentProject implements ActionListener {
         JButton linearDerivative = new JButton("Linear Derivative Graph: y' = mx + b"); // Creates linear derivative graph button (horizontal line)
         JButton quadraticDerivative = new JButton("Quadratic Derivative Graph: y' = ax² + bx + c"); // Creates quadratic derivative graph button (linear graph)
         JButton circle = new JButton("Circular Graph: r² = √((x - a)² + (y - b)²)"); // Creates circular graph button
-        JButton graphButton = new JButton("Graph!"); // Creates graphing button
+        JButton trig = new JButton("Trigonometric Function: y = a(sin/cos/tan)bx"); // Creates graphing button
 
         // Adds actionlisteners to buttons so input can be detected:
         vertical.addActionListener(this);
@@ -61,7 +59,7 @@ public class IndependentProject implements ActionListener {
         linearDerivative.addActionListener(this);
         quadraticDerivative.addActionListener(this);
         circle.addActionListener(this);
-        graphButton.addActionListener(this);
+        trig.addActionListener(this);
 
         // Sets button colors:
         vertical.setBackground(Color.white);
@@ -71,7 +69,7 @@ public class IndependentProject implements ActionListener {
         linearDerivative.setBackground(Color.white);
         quadraticDerivative.setBackground(Color.white);
         circle.setBackground(Color.lightGray);
-        graphButton.setBackground(Color.yellow);
+        trig.setBackground(Color.yellow);
 
         // Adds buttons to window in specific order:
         window.add(vertical);
@@ -81,7 +79,7 @@ public class IndependentProject implements ActionListener {
         window.add(linearDerivative);
         window.add(quadraticDerivative);
         window.add(circle);
-        window.add(graphButton);
+        window.add(trig);
         window.setVisible(true);
     }
 
