@@ -6,6 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Scanner;
 
+
+
+// MANDELL SAYS THAT YOU NEED TO FIX YOUR PROJECT STRUCTURE A BIT AT THE BEGINNING OF CLASS.  ITEMS IN YOUR "OUT" FOLDER ARE IN GIT AND THEY SHOULDN'T BE.
+
 // Resources (to copy/paste for later):
 // × ÷ - + % =
 // answer = new JLabel("Answer goes here");
