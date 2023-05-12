@@ -86,6 +86,7 @@ public class IndependentProject implements ActionListener {
         quadraticDerivativeWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         circularWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         trigWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         /*
         //Unused containers for pop-ups
         Container linearContainer = new Container();
@@ -151,6 +152,7 @@ public class IndependentProject implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        //Creates the input fields and sets them up depending on button pushed.
         JTextField x = new JTextField("x = ");
         JTextField b = new JTextField("b = ");
         JTextField m = new JTextField("m = ");
