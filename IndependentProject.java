@@ -122,7 +122,7 @@ public class IndependentProject implements ActionListener {
         //sets window visible
         window.setVisible(true);
     }
-
+//Changed code so that you can create multiple text boxes for the same type of equation
     @Override
     public void actionPerformed(ActionEvent e) {
         //Creates the input fields and sets them up depending on button pushed.
