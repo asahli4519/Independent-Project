@@ -42,15 +42,14 @@ public class IndependentProject implements ActionListener {
     JButton trig = new JButton("Trigonometric Function: y = a(sin/cos/tan)bx"); // Creates graphing button
     JTextField label = new JTextField("Choice what kind of equation you want to graph");//Sets the label/directions at the top of page
 
-    //Creates windows for input for functions
-    JFrame verticalWindow = new JFrame("Vertical");
-    JFrame horizontalWindow = new JFrame("Horizontal");
-    JFrame linearWindow = new JFrame("Linear");
-    JFrame quadraticWindow = new JFrame("Quadratic");
-    JFrame linearDerivativeWindow = new JFrame("Linear Derivative");
-    JFrame quadraticDerivativeWindow = new JFrame("Quadratic Derivation");
-    JFrame circularWindow = new JFrame("Circular");
-    JFrame trigWindow = new JFrame("Trigonometric");
+    boolean clickedvert = false;
+    boolean clickedhori = false;
+    boolean clickedline = false;
+    boolean clickedquad = false;
+    boolean clickedlide = false;
+    boolean clickedqude = false;
+    boolean clickedcirc = false;
+    boolean clickedtrig = false;
 
 
     // Main method:
@@ -60,32 +59,6 @@ public class IndependentProject implements ActionListener {
 
     // Constructor:
     public IndependentProject() {
-
-        //Sets up windows for inputs from other function buttons
-        verticalWindow.setSize(200,400);
-        horizontalWindow.setSize(200,400);
-        linearWindow.setSize(200,400);
-        quadraticWindow.setSize(200,400);
-        linearDerivativeWindow.setSize(200,400);
-        quadraticDerivativeWindow.setSize(200,400);
-        circularWindow.setSize(200,400);
-        trigWindow.setSize(200,400);
-        verticalWindow.setLayout(new BorderLayout());
-        horizontalWindow.setLayout(new BorderLayout());
-        linearWindow.setLayout(new GridLayout(2, 1));
-        quadraticWindow.setLayout(new GridLayout(3, 1));
-        linearDerivativeWindow.setLayout(new GridLayout(2, 1));
-        quadraticDerivativeWindow.setLayout(new GridLayout(3, 1));
-        circularWindow.setLayout(new GridLayout(2, 1));
-        trigWindow.setLayout(new GridLayout(2, 1));
-        verticalWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        horizontalWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        linearWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        quadraticWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        linearDerivativeWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        quadraticDerivativeWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        circularWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        trigWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         /*
         //Unused containers for pop-ups
@@ -158,52 +131,91 @@ public class IndependentProject implements ActionListener {
         JTextField m = new JTextField("m = ");
         JTextField c = new JTextField("c = ");
         JTextField a = new JTextField("a = ");
+        JTextField r = new JTextField("r = ");
+        JTextField trigFunc = new JTextField("trig function= ");
+        JButton graph = new JButton("Graph");
         x.setFont(new Font("Sansferif", Font.PLAIN, 30));
         b.setFont(new Font("Sansferif", Font.PLAIN, 30));
         m.setFont(new Font("Sansferif", Font.PLAIN, 30));
         c.setFont(new Font("Sansferif", Font.PLAIN, 30));
         a.setFont(new Font("Sansferif", Font.PLAIN, 30));
+        r.setFont(new Font("Sansferif", Font.PLAIN, 30));
+        trigFunc.setFont(new Font("Sansferif", Font.PLAIN, 15));
+
 
         if(e.getSource().equals(vertical)){
+            JFrame verticalWindow = new JFrame("Vertical");
+            verticalWindow.setSize(200,400);
+            verticalWindow.setLayout(new BorderLayout());
+            verticalWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             verticalWindow.add(c, BorderLayout.CENTER);
             verticalWindow.setVisible(true);
         }
         else if(e.getSource().equals(horizontal)){
+            JFrame horizontalWindow = new JFrame("Horizontal");
+            horizontalWindow.setSize(200,400);
+            horizontalWindow.setLayout(new BorderLayout());
+            horizontalWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             horizontalWindow.add(c, BorderLayout.CENTER);
             horizontalWindow.setVisible(true);
         }
         else if(e.getSource().equals(linear)){
+            JFrame linearWindow = new JFrame("Linear");
+            linearWindow.setSize(200,400);
+            linearWindow.setLayout(new GridLayout(2, 1));
+            linearWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             linearWindow.add(m, BorderLayout.NORTH);
             linearWindow.add(b,BorderLayout.NORTH);
             linearWindow.setVisible(true);
         }
         else if(e.getSource().equals(quadratic)){
+            JFrame quadraticWindow = new JFrame("Quadratic");
+            quadraticWindow.setSize(200,400);
+            quadraticWindow.setLayout(new GridLayout(3, 1));
+            quadraticWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             quadraticWindow.add(a, BorderLayout.NORTH);
             quadraticWindow.add(b, BorderLayout.CENTER);
             quadraticWindow.add(c, BorderLayout.SOUTH);
             quadraticWindow.setVisible(true);
         }
         else if(e.getSource().equals(linearDerivative)){
+            JFrame linearDerivativeWindow = new JFrame("Linear Derivative");
+            linearDerivativeWindow.setSize(200,400);
+            linearDerivativeWindow.setLayout(new GridLayout(2, 1));
+            linearDerivativeWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             linearDerivativeWindow.add(m, BorderLayout.NORTH);
             linearDerivativeWindow.add(b, BorderLayout.CENTER);
             linearDerivativeWindow.setVisible(true);
         }
         else if(e.getSource().equals(quadraticDerivative)){
+            JFrame quadraticDerivativeWindow = new JFrame("Quadratic Derivation");
+            quadraticDerivativeWindow.setSize(200,400);
+            quadraticDerivativeWindow.setLayout(new GridLayout(3, 1));
+            quadraticDerivativeWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             quadraticDerivativeWindow.add(a, BorderLayout.NORTH);
             quadraticDerivativeWindow.add(b, BorderLayout.CENTER);
             quadraticDerivativeWindow.add(c, BorderLayout.SOUTH);
             quadraticDerivativeWindow.setVisible(true);
         }
         else if(e.getSource().equals(circle)){
-            circularWindow.add(a);
-            circularWindow.add(b);
+            JFrame circularWindow = new JFrame("Circular");
+            circularWindow.setSize(200,400);
+            circularWindow.setLayout(new GridLayout(3, 1));
+            circularWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            circularWindow.add(a, BorderLayout.NORTH);
+            circularWindow.add(b, BorderLayout.NORTH);
+            circularWindow.add(r, BorderLayout.NORTH);
             circularWindow.setVisible(true);
         }
         else if(e.getSource().equals(trig)){
-            trigWindow.add(a);
-            trigWindow.add(b);
+            JFrame trigWindow = new JFrame("Trigonometric");
+            trigWindow.setSize(200,400);
+            trigWindow.setLayout(new GridLayout(3, 1));
+            trigWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            trigWindow.add(a, BorderLayout.NORTH);
+            trigWindow.add(b, BorderLayout.NORTH);
+            trigWindow.add(trigFunc, BorderLayout.SOUTH);
             trigWindow.setVisible(true);
         }
-
     }
 }
