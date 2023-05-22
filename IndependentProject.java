@@ -7,10 +7,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
-
-// MANDELL SAYS THAT YOU NEED TO FIX YOUR PROJECT STRUCTURE A BIT AT THE BEGINNING OF CLASS.  ITEMS IN YOUR "OUT" FOLDER ARE IN GIT AND THEY SHOULDN'T BE.
-
 // Resources (to copy/paste for later):
 // × ÷ - + % =
 // answer = new JLabel("Answer goes here");
@@ -41,9 +37,27 @@ public class IndependentProject implements ActionListener {
     JButton linearDerivative = new JButton("Linear Derivative Graph: y' = mx + b"); // Creates linear derivative graph button (horizontal line)
     JButton quadraticDerivative = new JButton("Quadratic Derivative Graph: y' = ax² + bx + c"); // Creates quadratic derivative graph button (linear graph)
     JButton circle = new JButton("Circular Graph: r² = √((x - a)² + (y - b)²)"); // Creates circular graph button
-    JButton trig = new JButton("Trigonometric Function: y = a(sin/cos/tan)bx"); // Creates graphing button
+    JButton trig = new JButton("Trigonometric Function: y = a(sin/cos/tan)bx"); // Creates trig button
     JTextField label = new JTextField("Choice what kind of equation you want to graph");//Sets the label/directions at the top of page
-    JButton graph = new JButton("Graph");
+    JButton graph = new JButton("Graph");//Creates the graph button
+    int ivc;
+    int ihc;
+    int ilm;
+    int ilb;
+    int iqa;
+    int iqb;
+    int iqc;
+    int ildm;
+    int ildb;
+    int iqda;
+    int iqdb;
+    int iqdc;
+    int icr;
+    int ica;
+    int icb;
+    int ita;
+    int itsct;
+    int itb;
 
 /*Unused buttons
     boolean clickedvert = false;
@@ -128,17 +142,49 @@ public class IndependentProject implements ActionListener {
         //sets window visible
         window.setVisible(true);
     }
+    public int getVertical(){
+        return ivc;
+    }
+    public int getHorizontal(){
+        return ihc;
+    }
+    public int[] getLinear(){
+        int[] linear = {ilm, ilb};
+        return linear;
+    }
+    public int[] getQuadratic(){
+        int[] quadratic = {iqa, iqb, iqc};
+        return quadratic;
+    }
+    public int[] getLinearDerivative(){
+        int[] linearDerivative = {ildm, ildb};
+        return linearDerivative;
+    }
+    public int[] getQuadraticDerivative(){
+        int[] quadraticDerivative = {iqda, iqdb, iqdc};
+        return quadraticDerivative;
+    }
+    public int[] getCircular(){
+        int[] circular = {icr, ica, icb};
+        return circular;
+    }
+    public int[] getTrigFunction(){
+        int[] trig = {ita, itb, itsct};
+        return trig;
+    }
+
+
 //Changed code so that you can create multiple text boxes for the same type of equation
     @Override
     public void actionPerformed(ActionEvent e) {
         //Creates the input fields and sets them up depending on button pushed.
-        JTextField x = new JTextField("x = ");
-        JTextField b = new JTextField("b = ");
-        JTextField m = new JTextField("m = ");
-        JTextField c = new JTextField("c = ");
-        JTextField a = new JTextField("a = ");
-        JTextField r = new JTextField("r = ");
-        JTextField trigFunc = new JTextField("trig function= ");
+        JLabel x = new JLabel("x = ");
+        JLabel b = new JLabel("b = ");
+        JLabel m = new JLabel("m = ");
+        JLabel c = new JLabel("c = ");
+        JLabel a = new JLabel("a = ");
+        JLabel r = new JLabel("r = ");
+        JLabel trigFunc = new JLabel(" trig function = ");
         JTextField vc = new JTextField();
         JTextField hc = new JTextField();
         JTextField lm = new JTextField();
@@ -191,6 +237,7 @@ public class IndependentProject implements ActionListener {
             verticalWindow.add(c);
             verticalWindow.add(vc);
             verticalWindow.setVisible(true);
+
         }
         else if(e.getSource().equals(horizontal)){
             JFrame horizontalWindow = new JFrame("Horizontal");
@@ -276,6 +323,7 @@ public class IndependentProject implements ActionListener {
             trigWindow.setVisible(true);
         }
         if(e.getSource().equals(graph)){
+            System.out.println(vc.getText() + ": this is what is in the textfield");
             int ivc = Integer.parseInt(vc.getText());
             int ihc = Integer.parseInt(hc.getText());
             int ilm = Integer.parseInt(lm.getText());
