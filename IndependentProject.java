@@ -79,7 +79,7 @@ public class IndependentProject implements ActionListener {
     public IndependentProject() {
 
         /*
-        //Unused containers for pop-ups
+        Unused containers for pop-ups
         Container linearContainer = new Container();
         Container quadraticContainer = new Container();
         Container circularContainer = new Container();
@@ -91,7 +91,6 @@ public class IndependentProject implements ActionListener {
         circularWindow.add(circularContainer);
         trigWindow.add(trigContainer);
          */
-
 
 
         // Sets up JFrame window:
