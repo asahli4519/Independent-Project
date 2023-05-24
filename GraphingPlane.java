@@ -51,14 +51,14 @@ class MyPanel extends JPanel {
         private int qdc = 4;
 
         // Circular graph:
-        private int ca;
-        private int cb;
-        private int cr;
+        private int ca = 3;
+        private int cb = 1;
+        private int cr = 5;
 
         // Trigonometric function graph:
-        private int ta;
-        private int tb;
-        private int trig;
+        private int ta = 1;
+        private int tb = 1;
+        private int trig = 0;
 
 
 
@@ -76,12 +76,16 @@ class MyPanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        for (int i = 0; i < dimensions; i++) { // Draws y-axis
+        g.setColor(Color.darkGray);
+
+        // Draws y-axis:
+        for (int i = 0; i < dimensions; i++) {
             g.fillRect(dimensions / 2, i, 1, 1);
             g.drawRect(dimensions / 2, i, 1, 1);
         }
 
-        for (int i = 0; i < dimensions; i++) { // Draws x-axis
+        // Draws x-axis:
+        for (int i = 0; i < dimensions; i++) {
             g.fillRect(i, dimensions / 2, 1, 1);
             g.drawRect(i, dimensions / 2, 1, 1);
         }
@@ -153,11 +157,36 @@ class MyPanel extends JPanel {
         // Graphs circular graph:
         for (int x = 0; x < dimensions; x++) { // Repeats for each pixel in plane length
             point = (x - (double) (dimensions / 2)) / scale; // Converts value of each pixel on plane to a scaled-down version for the graph
-            g.fillRect((x), - (int) (cr * scale * qa) + (dimensions / 2) - (int) (point * scale * qb) - (qc * scale), POINTWIDTH, POINTHEIGHT); // Draws a point on the graph at the correct spot (translates from plane coordinate system to panel coordinate system
-            g.drawRect((x), - (int) (cr * scale * qa) + (dimensions / 2) - (int) (point * scale * qb) - (qc * scale), POINTWIDTH, POINTHEIGHT);
+
+            // Creates top of circle:
+            if (cr * cr >= (point - ca) * (point - ca)) { // Prevents graph from drawing extra line that passes horizontally through circle centerpoint
+                g.fillRect((x), -(int) (scale * Math.sqrt((cr * cr) - (point - ca) * (point - ca))) + (dimensions / 2) - (cb * scale), POINTWIDTH, POINTHEIGHT); // Draws a point on the graph at the correct spot (translates from plane coordinate system to panel coordinate system
+                g.drawRect((x), -(int) (scale * Math.sqrt((cr * cr) - (point - ca) * (point - ca))) + (dimensions / 2) - (cb * scale), POINTWIDTH, POINTHEIGHT);
+
+                // Creates bottom of circle:
+                g.fillRect((x), (int) (scale * Math.sqrt((cr * cr) - (point - ca) * (point - ca))) + (dimensions / 2) - (cb * scale), POINTWIDTH, POINTHEIGHT); // Draws a point on the graph at the correct spot (translates from plane coordinate system to panel coordinate system
+                g.drawRect((x), (int) (scale * Math.sqrt((cr * cr) - (point - ca) * (point - ca))) + (dimensions / 2) - (cb * scale), POINTWIDTH, POINTHEIGHT);
+            }
         }
 
-        // Graphs trigonometric graph:
+        // Graphs trigonometric graph (NEEDS WORK):
+        for (int x = 0; x < dimensions; x++) { // Repeats for each pixel in plane length
+            point = (x - (double) (dimensions / 2)) / scale; // Converts value of each pixel on plane to a scaled-down version for the graph
+            if (trig == 0) {
+                g.fillRect((x), -(int) (scale * ta * Math.sin(point * tb) + (dimensions / 2)), POINTWIDTH, POINTHEIGHT); // Draws a point on the graph at the correct spot (translates from plane coordinate system to panel coordinate system
+                g.fillRect((x), -(int) (scale * ta * Math.sin(point * tb) + (dimensions / 2)), POINTWIDTH, POINTHEIGHT);
+            }
+
+            else if (trig == 1) {
+                g.fillRect((x), -(int) (scale * ta * Math.sin(point * tb) + (dimensions / 2)), POINTWIDTH, POINTHEIGHT); // Draws a point on the graph at the correct spot (translates from plane coordinate system to panel coordinate system
+                g.fillRect((x), -(int) (scale * ta * Math.sin(point * tb) + (dimensions / 2)), POINTWIDTH, POINTHEIGHT);
+            }
+
+            else {
+                g.fillRect((x), -(int) (scale * ta * Math.sin(point * tb) + (dimensions / 2)), POINTWIDTH, POINTHEIGHT); // Draws a point on the graph at the correct spot (translates from plane coordinate system to panel coordinate system
+                g.fillRect((x), -(int) (scale * ta * Math.sin(point * tb) + (dimensions / 2)), POINTWIDTH, POINTHEIGHT);
+            }
+        }
 
 
 
