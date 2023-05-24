@@ -29,6 +29,34 @@ public class IndependentProject implements ActionListener {
     Scanner myScanner = new Scanner(System.in); // Creates scanner for user number inputs
     public ArrayList<Integer> pos = new ArrayList<Integer>();
 
+    //All the text fields
+    JTextField vc = new JTextField();
+    JTextField hc = new JTextField();
+    JTextField lm = new JTextField();
+    JTextField lb = new JTextField();
+    JTextField qa = new JTextField();
+    JTextField qb = new JTextField();
+    JTextField qc = new JTextField();
+    JTextField ldm = new JTextField();
+    JTextField ldb = new JTextField();
+    JTextField qda = new JTextField();
+    JTextField qdb = new JTextField();
+    JTextField qdc = new JTextField();
+    JTextField cr = new JTextField();
+    JTextField ca = new JTextField();
+    JTextField cb = new JTextField();
+    JTextField ta = new JTextField();
+    JTextField tsct = new JTextField();
+    JTextField tb = new JTextField();
+    JTextField vcol = new JTextField();
+    JTextField hcol = new JTextField();
+    JTextField lcol = new JTextField();
+    JTextField qcol = new JTextField();
+    JTextField ldcol = new JTextField();
+    JTextField qdcol = new JTextField();
+    JTextField ccol = new JTextField();
+    JTextField tcol = new JTextField();
+
     // Adds buttons to window in specific order:
     JButton vertical = new JButton("Vertical Line: x = c"); // Creates vertical graph button
     JButton horizontal = new JButton("Horizontal Line: y = c"); // Creates horizontal graph button
@@ -183,32 +211,16 @@ public class IndependentProject implements ActionListener {
         JLabel c = new JLabel("c = ");
         JLabel a = new JLabel("a = ");
         JLabel r = new JLabel("r = ");
-        JLabel trigFunc = new JLabel(" trig function = ");
-        JTextField vc = new JTextField();
-        JTextField hc = new JTextField();
-        JTextField lm = new JTextField();
-        JTextField lb = new JTextField();
-        JTextField qa = new JTextField();
-        JTextField qb = new JTextField();
-        JTextField qc = new JTextField();
-        JTextField ldm = new JTextField();
-        JTextField ldb = new JTextField();
-        JTextField qda = new JTextField();
-        JTextField qdb = new JTextField();
-        JTextField qdc = new JTextField();
-        JTextField cr = new JTextField();
-        JTextField ca = new JTextField();
-        JTextField cb = new JTextField();
-        JTextField ta = new JTextField();
-        JTextField tsct = new JTextField();
-        JTextField tb = new JTextField();
+        JLabel colL = new JLabel("Color/1Blue,2Green,3yellow = ");
+        JLabel trigFunc = new JLabel(" trig function/0sin,1cos,2tan) = ");
         x.setFont(new Font("Sansferif", Font.PLAIN, 30));
         b.setFont(new Font("Sansferif", Font.PLAIN, 30));
         m.setFont(new Font("Sansferif", Font.PLAIN, 30));
         c.setFont(new Font("Sansferif", Font.PLAIN, 30));
         a.setFont(new Font("Sansferif", Font.PLAIN, 30));
         r.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        trigFunc.setFont(new Font("Sansferif", Font.PLAIN, 15));
+        colL.setFont(new Font("Sansferif", Font.PLAIN, 10));
+        trigFunc.setFont(new Font("Sansferif", Font.PLAIN, 10));
         vc.setFont(new Font("Sansferif", Font.PLAIN, 30));
         hc.setFont(new Font("Sansferif", Font.PLAIN, 30));
         lm.setFont(new Font("Sansferif", Font.PLAIN, 30));
@@ -230,37 +242,43 @@ public class IndependentProject implements ActionListener {
 
         if(e.getSource().equals(vertical)){
             JFrame verticalWindow = new JFrame("Vertical");
-            verticalWindow.setSize(200,100);
-            verticalWindow.setLayout(new GridLayout(1, 2));
+            verticalWindow.setSize(300,200);
+            verticalWindow.setLayout(new GridLayout(2, 2));
             verticalWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             verticalWindow.add(c);
             verticalWindow.add(vc);
+            verticalWindow.add(colL);
+            verticalWindow.add(vcol);
             verticalWindow.setVisible(true);
         }
         else if(e.getSource().equals(horizontal)){
             JFrame horizontalWindow = new JFrame("Horizontal");
-            horizontalWindow.setSize(200,100);
-            horizontalWindow.setLayout(new GridLayout(1, 2));
+            horizontalWindow.setSize(200,200);
+            horizontalWindow.setLayout(new GridLayout(2, 2));
             horizontalWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            horizontalWindow.add(c, BorderLayout.CENTER);
+            horizontalWindow.add(c);
             horizontalWindow.add(hc);
+            horizontalWindow.add(colL);
+            horizontalWindow.add(hcol);
             horizontalWindow.setVisible(true);
         }
         else if(e.getSource().equals(linear)){
             JFrame linearWindow = new JFrame("Linear");
-            linearWindow.setSize(200,200);
-            linearWindow.setLayout(new GridLayout(2, 2));
+            linearWindow.setSize(200,300);
+            linearWindow.setLayout(new GridLayout(3, 2));
             linearWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             linearWindow.add(m, BorderLayout.NORTH);
             linearWindow.add(lm);
             linearWindow.add(b,BorderLayout.NORTH);
             linearWindow.add(lb);
+            linearWindow.add(colL);
+            linearWindow.add(lcol);
             linearWindow.setVisible(true);
         }
         else if(e.getSource().equals(quadratic)){
             JFrame quadraticWindow = new JFrame("Quadratic");
-            quadraticWindow.setSize(200,300);
-            quadraticWindow.setLayout(new GridLayout(3, 2));
+            quadraticWindow.setSize(200,400);
+            quadraticWindow.setLayout(new GridLayout(4, 2));
             quadraticWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             quadraticWindow.add(a, BorderLayout.NORTH);
             quadraticWindow.add(qa);
@@ -268,23 +286,27 @@ public class IndependentProject implements ActionListener {
             quadraticWindow.add(qb);
             quadraticWindow.add(c, BorderLayout.SOUTH);
             quadraticWindow.add(qc);
+            quadraticWindow.add(colL);
+            quadraticWindow.add(qcol);
             quadraticWindow.setVisible(true);
         }
         else if(e.getSource().equals(linearDerivative)){
             JFrame linearDerivativeWindow = new JFrame("Linear Derivative");
-            linearDerivativeWindow.setSize(200,200);
-            linearDerivativeWindow.setLayout(new GridLayout(2, 2));
+            linearDerivativeWindow.setSize(200,300);
+            linearDerivativeWindow.setLayout(new GridLayout(3, 2));
             linearDerivativeWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             linearDerivativeWindow.add(m, BorderLayout.NORTH);
             linearDerivativeWindow.add(ldm);
             linearDerivativeWindow.add(b, BorderLayout.CENTER);
             linearDerivativeWindow.add(ldb);
+            linearDerivativeWindow.add(colL);
+            linearDerivativeWindow.add(ldcol);
             linearDerivativeWindow.setVisible(true);
         }
         else if(e.getSource().equals(quadraticDerivative)){
             JFrame quadraticDerivativeWindow = new JFrame("Quadratic Derivation");
-            quadraticDerivativeWindow.setSize(200,300);
-            quadraticDerivativeWindow.setLayout(new GridLayout(3, 2));
+            quadraticDerivativeWindow.setSize(200,400);
+            quadraticDerivativeWindow.setLayout(new GridLayout(4, 2));
             quadraticDerivativeWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             quadraticDerivativeWindow.add(a, BorderLayout.NORTH);
             quadraticDerivativeWindow.add(qda);
@@ -292,12 +314,14 @@ public class IndependentProject implements ActionListener {
             quadraticDerivativeWindow.add(qdb);
             quadraticDerivativeWindow.add(c, BorderLayout.SOUTH);
             quadraticDerivativeWindow.add(qdc);
+            quadraticDerivativeWindow.add(colL);
+            quadraticDerivativeWindow.add(qdcol);
             quadraticDerivativeWindow.setVisible(true);
         }
         else if(e.getSource().equals(circle)){
             JFrame circularWindow = new JFrame("Circular");
-            circularWindow.setSize(200,300);
-            circularWindow.setLayout(new GridLayout(3, 2));
+            circularWindow.setSize(200,400);
+            circularWindow.setLayout(new GridLayout(4, 2));
             circularWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             circularWindow.add(a, BorderLayout.NORTH);
             circularWindow.add(ca);
@@ -305,12 +329,14 @@ public class IndependentProject implements ActionListener {
             circularWindow.add(cb);
             circularWindow.add(r, BorderLayout.NORTH);
             circularWindow.add(cr);
+            circularWindow.add(colL);
+            circularWindow.add(ccol);
             circularWindow.setVisible(true);
         }
         else if(e.getSource().equals(trig)){
             JFrame trigWindow = new JFrame("Trigonometric");
-            trigWindow.setSize(200,300);
-            trigWindow.setLayout(new GridLayout(3, 2));
+            trigWindow.setSize(200,400);
+            trigWindow.setLayout(new GridLayout(4, 2));
             trigWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             trigWindow.add(a, BorderLayout.NORTH);
             trigWindow.add(ta);
@@ -318,13 +344,13 @@ public class IndependentProject implements ActionListener {
             trigWindow.add(tb);
             trigWindow.add(trigFunc, BorderLayout.SOUTH);
             trigWindow.add(tsct);
+            trigWindow.add(colL);
+            trigWindow.add(tcol);
             trigWindow.setVisible(true);
         }
         if(e.getSource().equals(graph)){
-            System.out.println(vc.getText() + ": this is what is in the textfield");
             int ivc = Integer.parseInt(vc.getText());
-
-         /*   int ihc = Integer.parseInt(hc.getText());
+            int ihc = Integer.parseInt(hc.getText());
             int ilm = Integer.parseInt(lm.getText());
             int ilb = Integer.parseInt(lb.getText());
             int iqa = Integer.parseInt(qa.getText());
@@ -340,7 +366,7 @@ public class IndependentProject implements ActionListener {
             int icb = Integer.parseInt(cb.getText());
             int ita = Integer.parseInt(ta.getText());
             int itsct = Integer.parseInt(tsct.getText());
-            int itb = Integer.parseInt(tb.getText());*/
+            int itb = Integer.parseInt(tb.getText());
         }
     }
 }
