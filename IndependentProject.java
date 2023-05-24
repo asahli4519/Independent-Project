@@ -36,7 +36,7 @@ public class IndependentProject implements ActionListener {
     JButton quadratic = new JButton("Quadratic Graph: ax² + bx + c"); // Creates quadratic graph button
     JButton linearDerivative = new JButton("Linear Derivative Graph: y' = mx + b"); // Creates linear derivative graph button (horizontal line)
     JButton quadraticDerivative = new JButton("Quadratic Derivative Graph: y' = ax² + bx + c"); // Creates quadratic derivative graph button (linear graph)
-    JButton circle = new JButton("Circular Graph: r² = √((x - a)² + (y - b)²)"); // Creates circular graph button
+    JButton circle = new JButton("Circular Graph: r² = (x - a)² + (y - b)²"); // Creates circular graph button
     JButton trig = new JButton("Trigonometric Function: y = a(sin/cos/tan)bx"); // Creates trig button
     JTextField label = new JTextField("Choice what kind of equation you want to graph");//Sets the label/directions at the top of page
     JButton graph = new JButton("Graph");//Creates the graph button
@@ -140,6 +140,7 @@ public class IndependentProject implements ActionListener {
 
         //sets window visible
         window.setVisible(true);
+        //Get methods for moving values to graphing class
     }
     public int getVertical(){
         return ivc;
@@ -173,7 +174,6 @@ public class IndependentProject implements ActionListener {
     }
 
 
-//Changed code so that you can create multiple text boxes for the same type of equation
     @Override
     public void actionPerformed(ActionEvent e) {
         //Creates the input fields and sets them up depending on button pushed.
@@ -236,7 +236,6 @@ public class IndependentProject implements ActionListener {
             verticalWindow.add(c);
             verticalWindow.add(vc);
             verticalWindow.setVisible(true);
-
         }
         else if(e.getSource().equals(horizontal)){
             JFrame horizontalWindow = new JFrame("Horizontal");
@@ -324,7 +323,8 @@ public class IndependentProject implements ActionListener {
         if(e.getSource().equals(graph)){
             System.out.println(vc.getText() + ": this is what is in the textfield");
             int ivc = Integer.parseInt(vc.getText());
-            int ihc = Integer.parseInt(hc.getText());
+
+         /*   int ihc = Integer.parseInt(hc.getText());
             int ilm = Integer.parseInt(lm.getText());
             int ilb = Integer.parseInt(lb.getText());
             int iqa = Integer.parseInt(qa.getText());
@@ -340,7 +340,7 @@ public class IndependentProject implements ActionListener {
             int icb = Integer.parseInt(cb.getText());
             int ita = Integer.parseInt(ta.getText());
             int itsct = Integer.parseInt(tsct.getText());
-            int itb = Integer.parseInt(tb.getText());
+            int itb = Integer.parseInt(tb.getText());*/
         }
     }
 }
