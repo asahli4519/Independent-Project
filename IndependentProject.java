@@ -257,7 +257,7 @@ public class IndependentProject implements ActionListener {
             verticalWindow.add(colL);
             verticalWindow.add(vcol);
             verticalWindow.setVisible(true);
-
+            clickedvert = true;
         }
         if(e.getSource().equals(horizontal)){
             JFrame horizontalWindow = new JFrame("Horizontal");
@@ -269,6 +269,7 @@ public class IndependentProject implements ActionListener {
             horizontalWindow.add(colL);
             horizontalWindow.add(hcol);
             horizontalWindow.setVisible(true);
+            clickedhori = true;
         }
         if(e.getSource().equals(linear)){
             JFrame linearWindow = new JFrame("Linear");
@@ -282,6 +283,7 @@ public class IndependentProject implements ActionListener {
             linearWindow.add(colL);
             linearWindow.add(lcol);
             linearWindow.setVisible(true);
+            clickedline = true;
         }
         if(e.getSource().equals(quadratic)){
             JFrame quadraticWindow = new JFrame("Quadratic");
@@ -297,6 +299,7 @@ public class IndependentProject implements ActionListener {
             quadraticWindow.add(colL);
             quadraticWindow.add(qcol);
             quadraticWindow.setVisible(true);
+            clickedquad = true;
         }
         if(e.getSource().equals(linearDerivative)){
             JFrame linearDerivativeWindow = new JFrame("Linear Derivative");
@@ -310,6 +313,7 @@ public class IndependentProject implements ActionListener {
             linearDerivativeWindow.add(colL);
             linearDerivativeWindow.add(ldcol);
             linearDerivativeWindow.setVisible(true);
+            clickedlide = true;
         }
         if(e.getSource().equals(quadraticDerivative)){
             JFrame quadraticDerivativeWindow = new JFrame("Quadratic Derivation");
@@ -325,6 +329,7 @@ public class IndependentProject implements ActionListener {
             quadraticDerivativeWindow.add(colL);
             quadraticDerivativeWindow.add(qdcol);
             quadraticDerivativeWindow.setVisible(true);
+            clickedqude = true;
         }
         if(e.getSource().equals(circle)){
             JFrame circularWindow = new JFrame("Circular");
@@ -340,6 +345,7 @@ public class IndependentProject implements ActionListener {
             circularWindow.add(colL);
             circularWindow.add(ccol);
             circularWindow.setVisible(true);
+            clickedcirc = true;
         }
         if(e.getSource().equals(trig)){
             JFrame trigWindow = new JFrame("Trigonometric");
@@ -355,34 +361,51 @@ public class IndependentProject implements ActionListener {
             trigWindow.add(colL);
             trigWindow.add(tcol);
             trigWindow.setVisible(true);
+            clickedtrig = true;
         }
         if(e.getSource().equals(graph)){
-            ivc = Integer.parseInt(vc.getText());
-            ihc = Integer.parseInt(hc.getText());
-            ilm = Integer.parseInt(lm.getText());
-            ilb = Integer.parseInt(lb.getText());
-            iqa = Integer.parseInt(qa.getText());
-            iqb = Integer.parseInt(qb.getText());
-            iqc = Integer.parseInt(qc.getText());
-            ildm = Integer.parseInt(ldm.getText());
-            ildb = Integer.parseInt(ldb.getText());
-            iqda = Integer.parseInt(qda.getText());
-            iqdb = Integer.parseInt(qdb.getText());
-            iqdc = Integer.parseInt(qdc.getText());
-            icr = Integer.parseInt(cr.getText());
-            ica = Integer.parseInt(ca.getText());
-            icb = Integer.parseInt(cb.getText());
-            ita = Integer.parseInt(ta.getText());
-            itsct = Integer.parseInt(tsct.getText());
-            itb = Integer.parseInt(tb.getText());
-            ivcol = Integer.parseInt(vcol.getText());
-            ihcol = Integer.parseInt(hcol.getText());
-            ilcol = Integer.parseInt(lcol.getText());
-            iqcol = Integer.parseInt(qcol.getText());
-            ildcol = Integer.parseInt(ldcol.getText());
-            iqdcol = Integer.parseInt(qdcol.getText());
-            iccol = Integer.parseInt(ccol.getText());
-            itcol = Integer.parseInt(tcol.getText());
+            if(clickedvert) {
+                ivc = Integer.parseInt(vc.getText());
+                ivcol = Integer.parseInt(vcol.getText());
+            }
+            if(clickedhori) {
+                ihc = Integer.parseInt(hc.getText());
+                ihcol = Integer.parseInt(hcol.getText());
+            }
+            if(clickedline) {
+                ilm = Integer.parseInt(lm.getText());
+                ilb = Integer.parseInt(lb.getText());
+                ilcol = Integer.parseInt(lcol.getText());
+            }
+            if(clickedquad) {
+                iqa = Integer.parseInt(qa.getText());
+                iqb = Integer.parseInt(qb.getText());
+                iqc = Integer.parseInt(qc.getText());
+                iqcol = Integer.parseInt(qcol.getText());
+            }
+            if(clickedlide) {
+                ildm = Integer.parseInt(ldm.getText());
+                ildb = Integer.parseInt(ldb.getText());
+                ildcol = Integer.parseInt(ldcol.getText());
+            }
+            if(clickedqude) {
+                iqda = Integer.parseInt(qda.getText());
+                iqdb = Integer.parseInt(qdb.getText());
+                iqdc = Integer.parseInt(qdc.getText());
+                iqdcol = Integer.parseInt(qdcol.getText());
+            }
+            if(clickedcirc) {
+                icr = Integer.parseInt(cr.getText());
+                ica = Integer.parseInt(ca.getText());
+                icb = Integer.parseInt(cb.getText());
+                iccol = Integer.parseInt(ccol.getText());
+            }
+            if(clickedtrig) {
+                ita = Integer.parseInt(ta.getText());
+                itb = Integer.parseInt(tb.getText());
+                itsct = Integer.parseInt(tsct.getText());
+                itcol = Integer.parseInt(tcol.getText());
+            }
         }
     }
 }
