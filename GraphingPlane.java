@@ -117,7 +117,7 @@ class MyPanel extends JPanel {
         // VERTICAL LINE:
 
         // Decodes color for graph:
-        if (color == 1) {
+        if (verticalLine[0] == 1) {
             g.setColor(Color.BLUE);
         }
         else if (color == 2) {
