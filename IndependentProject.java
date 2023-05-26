@@ -68,7 +68,7 @@ public class IndependentProject implements ActionListener {
     JButton trig = new JButton("Trigonometric Function: y = a(sin/cos/tan)bx"); // Creates trig button
     JTextField label = new JTextField("Choice what kind of equation you want to graph");//Sets the label/directions at the top of page
     JButton graph = new JButton("Graph");//Creates the graph button
-    int ivc;
+    static int ivc;
     int ihc;
     int ilm;
     int ilb;
@@ -86,7 +86,7 @@ public class IndependentProject implements ActionListener {
     int ita;
     int itsct;
     int itb;
-    int ivcol;
+    static int ivcol;
     int ihcol;
     int ilcol;
     int iqcol;
@@ -94,9 +94,6 @@ public class IndependentProject implements ActionListener {
     int iqdcol;
     int iccol;
     int itcol;
-    int[] verticalA = {ivcol, ivc};
-
-/*Unused buttons
     boolean clickedvert = false;
     boolean clickedhori = false;
     boolean clickedline = false;
@@ -105,7 +102,6 @@ public class IndependentProject implements ActionListener {
     boolean clickedqude = false;
     boolean clickedcirc = false;
     boolean clickedtrig = false;
-*/
        /*
         Unused containers for pop-ups
         Container linearContainer = new Container();
@@ -179,8 +175,9 @@ public class IndependentProject implements ActionListener {
         window.setVisible(true);
         //Get methods for moving values to graphing class
     }
-    public int[] getVertical(){
-        return verticalA;
+    public static int[] getVertical(){
+        int[] vertical = {ivcol, ivc};
+        return vertical;
     }
     public int[] getHorizontal(){
         int[] horizontal = {ihcol, ihc};
@@ -261,7 +258,7 @@ public class IndependentProject implements ActionListener {
             verticalWindow.add(vcol);
             verticalWindow.setVisible(true);
         }
-        else if(e.getSource().equals(horizontal)){
+        if(e.getSource().equals(horizontal)){
             JFrame horizontalWindow = new JFrame("Horizontal");
             horizontalWindow.setSize(200,200);
             horizontalWindow.setLayout(new GridLayout(2, 2));
@@ -272,7 +269,7 @@ public class IndependentProject implements ActionListener {
             horizontalWindow.add(hcol);
             horizontalWindow.setVisible(true);
         }
-        else if(e.getSource().equals(linear)){
+        if(e.getSource().equals(linear)){
             JFrame linearWindow = new JFrame("Linear");
             linearWindow.setSize(200,300);
             linearWindow.setLayout(new GridLayout(3, 2));
@@ -285,7 +282,7 @@ public class IndependentProject implements ActionListener {
             linearWindow.add(lcol);
             linearWindow.setVisible(true);
         }
-        else if(e.getSource().equals(quadratic)){
+        if(e.getSource().equals(quadratic)){
             JFrame quadraticWindow = new JFrame("Quadratic");
             quadraticWindow.setSize(200,400);
             quadraticWindow.setLayout(new GridLayout(4, 2));
@@ -300,7 +297,7 @@ public class IndependentProject implements ActionListener {
             quadraticWindow.add(qcol);
             quadraticWindow.setVisible(true);
         }
-        else if(e.getSource().equals(linearDerivative)){
+        if(e.getSource().equals(linearDerivative)){
             JFrame linearDerivativeWindow = new JFrame("Linear Derivative");
             linearDerivativeWindow.setSize(200,300);
             linearDerivativeWindow.setLayout(new GridLayout(3, 2));
@@ -313,7 +310,7 @@ public class IndependentProject implements ActionListener {
             linearDerivativeWindow.add(ldcol);
             linearDerivativeWindow.setVisible(true);
         }
-        else if(e.getSource().equals(quadraticDerivative)){
+        if(e.getSource().equals(quadraticDerivative)){
             JFrame quadraticDerivativeWindow = new JFrame("Quadratic Derivation");
             quadraticDerivativeWindow.setSize(200,400);
             quadraticDerivativeWindow.setLayout(new GridLayout(4, 2));
@@ -328,7 +325,7 @@ public class IndependentProject implements ActionListener {
             quadraticDerivativeWindow.add(qdcol);
             quadraticDerivativeWindow.setVisible(true);
         }
-        else if(e.getSource().equals(circle)){
+        if(e.getSource().equals(circle)){
             JFrame circularWindow = new JFrame("Circular");
             circularWindow.setSize(200,400);
             circularWindow.setLayout(new GridLayout(4, 2));
@@ -343,7 +340,7 @@ public class IndependentProject implements ActionListener {
             circularWindow.add(ccol);
             circularWindow.setVisible(true);
         }
-        else if(e.getSource().equals(trig)){
+        if(e.getSource().equals(trig)){
             JFrame trigWindow = new JFrame("Trigonometric");
             trigWindow.setSize(200,400);
             trigWindow.setLayout(new GridLayout(4, 2));
