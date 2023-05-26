@@ -29,38 +29,52 @@ class MyPanel extends JPanel {
         // Vertical line:
         private int vc = 3;
 
-        // Horizontal line:
+        int[] verticalLine = IndependentProject.getVertical(); // Color, c
+
+    // Horizontal line:
         private int hc = 5;
+
+        int[] horizontalLine = IndependentProject.getHorizontal(); // Color, c
 
         // Linear graph:
         private int lm = 2;
         private int lb = 5;
+
+        int[] linearGraph = IndependentProject.getLinear(); // Color, m, b
 
         // Quadratic graph:
         private int qa = 2;
         private int qb = 3;
         private int qc = 4;
 
+        int[] quadraticGraph = IndependentProject.getQuadratic(); // Color, a, b, c
+
         // Linear derivative graph:
         private int ldm = 2;
         private int ldb = 5;
+
+        int[] linearDerivative = IndependentProject.getLinearDerivative(); // Color, m, b
 
         // Quadratic derivative graph:
         private int qda = 2;
         private int qdb = 3;
         private int qdc = 4;
 
+        int[] quadraticDerivative = IndependentProject.getQuadraticDerivative(); // Color, a, b, c
+
         // Circular graph:
+        private int cr = 5;
         private int ca = 3;
         private int cb = 1;
-        private int cr = 5;
+
+        int[] circularGraph = IndependentProject.getCircular(); // Color, r, a, b
 
         // Trigonometric function graph:
-        private int ta = 1;
-        private int tb = 1;
+        private int ta = 2;
+        private int tb = 2;
         private int trig = 0;
 
-
+        int[] trigFunction = IndependentProject.getTrigFunction(); // Color, a, b, sin/cos/tan
 
     private int color = 0; // Sets color value for graphs (to be decoded later)
 
@@ -76,7 +90,9 @@ class MyPanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        g.setColor(Color.darkGray);
+        g.setColor(Color.gray);
+
+        // AXES:
 
         // Draws y-axis:
         for (int i = 0; i < dimensions; i++) {
@@ -96,24 +112,26 @@ class MyPanel extends JPanel {
         g.drawString("-10", dimensions / 2 + 15, dimensions - 5); // South
         g.drawString("-10", 5, dimensions / 2 + 15); // West
 
+        double point;
+
+        // VERTICAL LINE:
+
         // Decodes color for graph:
         if (color == 1) {
-            g.setColor(Color.RED);
+            g.setColor(Color.BLUE);
         }
         else if (color == 2) {
-            g.setColor(Color.ORANGE);
-        }
-        else if (color == 3) {
             g.setColor(Color.GREEN);
         }
+        else if (color == 3) {
+            g.setColor(Color.RED);
+        }
         else if (color == 4) {
-            g.setColor(Color.BLUE);
+            g.setColor(Color.ORANGE);
         }
         else {
             g.setColor(Color.BLACK);
         }
-
-        double point;
 
         // Graphs vertical line:
         for (int i = 0; i < dimensions; i++) { // Draws y-axis
@@ -121,10 +139,48 @@ class MyPanel extends JPanel {
             g.drawRect(dimensions / 2 + vc * scale, i, POINTWIDTH, POINTHEIGHT);
         }
 
+        // HORIZONTAL LINE:
+
+        // Decodes color for graph:
+        if (color == 1) {
+            g.setColor(Color.BLUE);
+        }
+        else if (color == 2) {
+            g.setColor(Color.GREEN);
+        }
+        else if (color == 3) {
+            g.setColor(Color.RED);
+        }
+        else if (color == 4) {
+            g.setColor(Color.ORANGE);
+        }
+        else {
+            g.setColor(Color.BLACK);
+        }
+
         // Graphs horizontal line:
         for (int i = 0; i < dimensions; i++) { // Draws x-axis
             g.fillRect(i, dimensions / 2 - hc * scale, POINTWIDTH, POINTHEIGHT);
             g.drawRect(i, dimensions / 2 - hc * scale, POINTWIDTH, POINTHEIGHT);
+        }
+
+        // LINEAR GRAPH:
+
+        // Decodes color for graph:
+        if (color == 1) {
+            g.setColor(Color.BLUE);
+        }
+        else if (color == 2) {
+            g.setColor(Color.GREEN);
+        }
+        else if (color == 3) {
+            g.setColor(Color.RED);
+        }
+        else if (color == 4) {
+            g.setColor(Color.ORANGE);
+        }
+        else {
+            g.setColor(Color.BLACK);
         }
 
         // Graphs linear graph:
@@ -134,11 +190,49 @@ class MyPanel extends JPanel {
             g.drawRect((x), - (int) (point * scale * lm) + (dimensions / 2) - (lb * scale), POINTWIDTH, POINTHEIGHT);
         }
 
+        // QUADRATIC GRAPH:
+
+        // Decodes color for graph:
+        if (color == 1) {
+            g.setColor(Color.BLUE);
+        }
+        else if (color == 2) {
+            g.setColor(Color.GREEN);
+        }
+        else if (color == 3) {
+            g.setColor(Color.RED);
+        }
+        else if (color == 4) {
+            g.setColor(Color.ORANGE);
+        }
+        else {
+            g.setColor(Color.BLACK);
+        }
+
         // Graphs quadratic graph:
         for (int x = 0; x < dimensions; x++) { // Repeats for each pixel in plane length
             point = (x - (double) (dimensions / 2)) / scale; // Converts value of each pixel on plane to a scaled-down version for the graph
             g.fillRect((x), - (int) (point * point * scale * qa) + (dimensions / 2) - (int) (point * scale * qb) - (qc * scale), POINTWIDTH, POINTHEIGHT); // Draws a point on the graph at the correct spot (translates from plane coordinate system to panel coordinate system
             g.drawRect((x), - (int) (point * point * scale * qa) + (dimensions / 2) - (int) (point * scale * qb) - (qc * scale), POINTWIDTH, POINTHEIGHT);
+        }
+
+        // LINEAR DERIVATIVE GRAPH:
+
+        // Decodes color for graph:
+        if (color == 1) {
+            g.setColor(Color.BLUE);
+        }
+        else if (color == 2) {
+            g.setColor(Color.GREEN);
+        }
+        else if (color == 3) {
+            g.setColor(Color.RED);
+        }
+        else if (color == 4) {
+            g.setColor(Color.ORANGE);
+        }
+        else {
+            g.setColor(Color.BLACK);
         }
 
         // Graphs linear derivative graph:
@@ -147,11 +241,48 @@ class MyPanel extends JPanel {
             g.drawRect(i, dimensions / 2 - ldm * scale, POINTWIDTH, POINTHEIGHT);
         }
 
+        // QUADRATIC DERIVATIVE GRAPH:
+
+        // Decodes color for graph:
+        if (color == 1) {
+            g.setColor(Color.BLUE);
+        }
+        else if (color == 2) {
+            g.setColor(Color.GREEN);
+        }
+        else if (color == 3) {
+            g.setColor(Color.RED);
+        }
+        else if (color == 4) {
+            g.setColor(Color.ORANGE);
+        }
+        else {
+            g.setColor(Color.BLACK);
+        }
+
         // Graphs quadratic derivative graph:
         for (int x = 0; x < dimensions; x++) { // Repeats for each pixel in plane length
             point = (x - (double) (dimensions / 2)) / scale; // Converts value of each pixel on plane to a scaled-down version for the graph
             g.fillRect((x), - (int) (point * scale * qda * 2) + (dimensions / 2) - (qdb * scale), POINTWIDTH, POINTHEIGHT);
             g.drawRect((x), - (int) (point * scale * qda * 2) + (dimensions / 2) - (qdb * scale), POINTWIDTH, POINTHEIGHT);
+        }
+        // CIRCULAR GRAPH:
+
+        // Decodes color for graph:
+        if (color == 1) {
+            g.setColor(Color.BLUE);
+        }
+        else if (color == 2) {
+            g.setColor(Color.GREEN);
+        }
+        else if (color == 3) {
+            g.setColor(Color.RED);
+        }
+        else if (color == 4) {
+            g.setColor(Color.ORANGE);
+        }
+        else {
+            g.setColor(Color.BLACK);
         }
 
         // Graphs circular graph:
@@ -169,42 +300,48 @@ class MyPanel extends JPanel {
             }
         }
 
-        // Graphs trigonometric graph (NEEDS WORK):
-        for (int x = 0; x < dimensions; x++) { // Repeats for each pixel in plane length
-            point = (x - (double) (dimensions / 2)) / scale; // Converts value of each pixel on plane to a scaled-down version for the graph
+        // TRIGONOMETRIC FUNCTION GRAPH:
+
+        // Decodes color for graph:
+        if (color == 1) {
+            g.setColor(Color.BLUE);
+        }
+        else if (color == 2) {
+            g.setColor(Color.GREEN);
+        }
+        else if (color == 3) {
+            g.setColor(Color.RED);
+        }
+        else if (color == 4) {
+            g.setColor(Color.ORANGE);
+        }
+        else {
+            g.setColor(Color.BLACK);
+        }
+
+        // Graphs trigonometric graph:
             if (trig == 0) {
-                g.fillRect((x), -(int) (scale * ta * Math.sin(point * tb) + (dimensions / 2)), POINTWIDTH, POINTHEIGHT); // Draws a point on the graph at the correct spot (translates from plane coordinate system to panel coordinate system
-                g.fillRect((x), -(int) (scale * ta * Math.sin(point * tb) + (dimensions / 2)), POINTWIDTH, POINTHEIGHT);
+                for (int x = 0; x < dimensions; x++) { // Repeats for each pixel in plane length
+                    point = (x - (double) (dimensions / 2)) / scale; // Converts value of each pixel on plane to a scaled-down version for the graph
+                    g.fillRect((x), (int) (scale * -ta * Math.sin(point * tb) + (dimensions / 2)), POINTWIDTH, POINTHEIGHT); // Draws a point on the graph at the correct spot (translates from plane coordinate system to panel coordinate system
+                    g.fillRect((x), (int) (scale * -ta * Math.sin(point * tb) + (dimensions / 2)), POINTWIDTH, POINTHEIGHT);
+                }
             }
 
             else if (trig == 1) {
-                g.fillRect((x), -(int) (scale * ta * Math.sin(point * tb) + (dimensions / 2)), POINTWIDTH, POINTHEIGHT); // Draws a point on the graph at the correct spot (translates from plane coordinate system to panel coordinate system
-                g.fillRect((x), -(int) (scale * ta * Math.sin(point * tb) + (dimensions / 2)), POINTWIDTH, POINTHEIGHT);
+                for (int x = 0; x < dimensions; x++) { // Repeats for each pixel in plane length
+                    point = (x - (double) (dimensions / 2)) / scale; // Converts value of each pixel on plane to a scaled-down version for the graph
+                    g.fillRect((x), (int) (scale * -ta * Math.cos(point * tb) + (dimensions / 2)), POINTWIDTH, POINTHEIGHT); // Draws a point on the graph at the correct spot (translates from plane coordinate system to panel coordinate system
+                    g.fillRect((x), (int) (scale * -ta * Math.cos(point * tb) + (dimensions / 2)), POINTWIDTH, POINTHEIGHT);
+                }
             }
 
             else {
-                g.fillRect((x), -(int) (scale * ta * Math.sin(point * tb) + (dimensions / 2)), POINTWIDTH, POINTHEIGHT); // Draws a point on the graph at the correct spot (translates from plane coordinate system to panel coordinate system
-                g.fillRect((x), -(int) (scale * ta * Math.sin(point * tb) + (dimensions / 2)), POINTWIDTH, POINTHEIGHT);
+                for (int x = 0; x < dimensions; x++) { // Repeats for each pixel in plane length
+                    point = (x - (double) (dimensions / 2)) / scale; // Converts value of each pixel on plane to a scaled-down version for the graph
+                    g.fillRect((x), (int) (scale * -ta * Math.tan(point * tb) + (dimensions / 2)), POINTWIDTH, POINTHEIGHT); // Draws a point on the graph at the correct spot (translates from plane coordinate system to panel coordinate system
+                    g.fillRect((x), (int) (scale * -ta * Math.tan(point * tb) + (dimensions / 2)), POINTWIDTH, POINTHEIGHT);
             }
-        }
-
-
-
-
-
-
-            /*
-            System.out.println(point);
-            System.out.println(x);
-            System.out.println(point * point * scale);
-            System.out.println("");
-            */
-
-
-        for (int x = 0; x < dimensions; x++) { // Repeats for each pixel in plane length
-            point = (x - (double) (dimensions / 2)) / scale; // Converts value of each pixel on plane to a scaled-down version for the graph
-            g.fillRect((x), - (int) (point * point * point * scale) + (dimensions / 2), POINTWIDTH, POINTHEIGHT);
-            g.drawRect((x), - (int) (point * point * point * scale) + (dimensions / 2), POINTWIDTH, POINTHEIGHT);
         }
     }
 }
