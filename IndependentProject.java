@@ -94,6 +94,7 @@ public class IndependentProject implements ActionListener {
     int iqdcol;
     int iccol;
     int itcol;
+    int[] verticalA = {ivcol, ivc};
 
 /*Unused buttons
     boolean clickedvert = false;
@@ -179,8 +180,7 @@ public class IndependentProject implements ActionListener {
         //Get methods for moving values to graphing class
     }
     public int[] getVertical(){
-        int[] vertical = {ivcol, ivc};
-        return vertical;
+        return verticalA;
     }
     public int[] getHorizontal(){
         int[] horizontal = {ihcol, ihc};
