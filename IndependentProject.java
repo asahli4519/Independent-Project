@@ -86,6 +86,14 @@ public class IndependentProject implements ActionListener {
     int ita;
     int itsct;
     int itb;
+    int ivcol;
+    int ihcol;
+    int ilcol;
+    int iqcol;
+    int ildcol;
+    int iqdcol;
+    int iccol;
+    int itcol;
 
 /*Unused buttons
     boolean clickedvert = false;
@@ -97,16 +105,7 @@ public class IndependentProject implements ActionListener {
     boolean clickedcirc = false;
     boolean clickedtrig = false;
 */
-
-    // Main method:
-    public static void main(String[] args) {
-        new IndependentProject();
-    }
-
-    // Constructor:
-    public IndependentProject() {
-
-        /*
+       /*
         Unused containers for pop-ups
         Container linearContainer = new Container();
         Container quadraticContainer = new Container();
@@ -120,7 +119,16 @@ public class IndependentProject implements ActionListener {
         trigWindow.add(trigContainer);
          */
 
+    // Main method:
+    public static void main(String[] args) {
+        new IndependentProject();
+    }
 
+    // Constructor:
+    public IndependentProject() {
+
+
+        //MyPanel test = new JPanel;
         // Sets up JFrame window:
         JFrame window = new JFrame("Calculator");
         window.setSize(800,800);
@@ -170,34 +178,36 @@ public class IndependentProject implements ActionListener {
         window.setVisible(true);
         //Get methods for moving values to graphing class
     }
-    public int getVertical(){
-        return ivc;
+    public int[] getVertical(){
+        int[] vertical = {ivcol, ivc};
+        return vertical;
     }
-    public int getHorizontal(){
-        return ihc;
+    public int[] getHorizontal(){
+        int[] horizontal = {ihcol, ihc};
+        return horizontal;
     }
     public int[] getLinear(){
-        int[] linear = {ilm, ilb};
+        int[] linear = {ilcol, ilm, ilb};
         return linear;
     }
     public int[] getQuadratic(){
-        int[] quadratic = {iqa, iqb, iqc};
+        int[] quadratic = {iqcol, iqa, iqb, iqc};
         return quadratic;
     }
     public int[] getLinearDerivative(){
-        int[] linearDerivative = {ildm, ildb};
+        int[] linearDerivative = {ildcol, ildm, ildb};
         return linearDerivative;
     }
     public int[] getQuadraticDerivative(){
-        int[] quadraticDerivative = {iqda, iqdb, iqdc};
+        int[] quadraticDerivative = {iqdcol, iqda, iqdb, iqdc};
         return quadraticDerivative;
     }
     public int[] getCircular(){
-        int[] circular = {icr, ica, icb};
+        int[] circular = {iccol, icr, ica, icb};
         return circular;
     }
     public int[] getTrigFunction(){
-        int[] trig = {ita, itb, itsct};
+        int[] trig = {itcol, ita, itb, itsct};
         return trig;
     }
 
@@ -211,8 +221,8 @@ public class IndependentProject implements ActionListener {
         JLabel c = new JLabel("c = ");
         JLabel a = new JLabel("a = ");
         JLabel r = new JLabel("r = ");
-        JLabel colL = new JLabel("Color/1Blue,2Green,3yellow = ");
-        JLabel trigFunc = new JLabel(" trig function/0sin,1cos,2tan) = ");
+        JLabel colL = new JLabel("<html>Color<br>1/Blue<br>2/Green<br>3/Red<br>4/Orange = </html>");
+        JLabel trigFunc = new JLabel("<html>trig function<br>0sin,1cos,2tan) = </html>");
         x.setFont(new Font("Sansferif", Font.PLAIN, 30));
         b.setFont(new Font("Sansferif", Font.PLAIN, 30));
         m.setFont(new Font("Sansferif", Font.PLAIN, 30));
@@ -242,7 +252,7 @@ public class IndependentProject implements ActionListener {
 
         if(e.getSource().equals(vertical)){
             JFrame verticalWindow = new JFrame("Vertical");
-            verticalWindow.setSize(300,200);
+            verticalWindow.setSize(200,200);
             verticalWindow.setLayout(new GridLayout(2, 2));
             verticalWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             verticalWindow.add(c);
@@ -367,6 +377,14 @@ public class IndependentProject implements ActionListener {
             int ita = Integer.parseInt(ta.getText());
             int itsct = Integer.parseInt(tsct.getText());
             int itb = Integer.parseInt(tb.getText());
+            int ivcol = Integer.parseInt(vcol.getText());
+            int ihcol = Integer.parseInt(hcol.getText());
+            int ilcol = Integer.parseInt(lcol.getText());
+            int iqcol = Integer.parseInt(qcol.getText());
+            int ildcol = Integer.parseInt(ldcol.getText());
+            int iqdcol = Integer.parseInt(qdcol.getText());
+            int iccol = Integer.parseInt(ccol.getText());
+            int itcol = Integer.parseInt(tcol.getText());
         }
     }
 }
