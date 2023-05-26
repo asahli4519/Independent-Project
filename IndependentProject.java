@@ -69,31 +69,31 @@ public class IndependentProject implements ActionListener {
     JTextField label = new JTextField("Choice what kind of equation you want to graph");//Sets the label/directions at the top of page
     JButton graph = new JButton("Graph");//Creates the graph button
     static int ivc;
-    int ihc;
-    int ilm;
-    int ilb;
-    int iqa;
-    int iqb;
-    int iqc;
-    int ildm;
-    int ildb;
-    int iqda;
-    int iqdb;
-    int iqdc;
-    int icr;
-    int ica;
-    int icb;
-    int ita;
-    int itsct;
-    int itb;
+    static int ihc;
+    static int ilm;
+    static int ilb;
+    static int iqa;
+    static int iqb;
+    static int iqc;
+    static int ildm;
+    static int ildb;
+    static int iqda;
+    static int iqdb;
+    static int iqdc;
+    static int icr;
+    static int ica;
+    static int icb;
+    static int ita;
+    static int itsct;
+    static int itb;
     static int ivcol;
-    int ihcol;
-    int ilcol;
-    int iqcol;
-    int ildcol;
-    int iqdcol;
-    int iccol;
-    int itcol;
+    static int ihcol;
+    static int ilcol;
+    static int iqcol;
+    static int ildcol;
+    static int iqdcol;
+    static int iccol;
+    static int itcol;
     boolean clickedvert = false;
     boolean clickedhori = false;
     boolean clickedline = false;
@@ -179,31 +179,31 @@ public class IndependentProject implements ActionListener {
         int[] vertical = {ivcol, ivc};
         return vertical;
     }
-    public int[] getHorizontal(){
+    public static int[] getHorizontal(){
         int[] horizontal = {ihcol, ihc};
         return horizontal;
     }
-    public int[] getLinear(){
+    public static int[] getLinear(){
         int[] linear = {ilcol, ilm, ilb};
         return linear;
     }
-    public int[] getQuadratic(){
+    public static int[] getQuadratic(){
         int[] quadratic = {iqcol, iqa, iqb, iqc};
         return quadratic;
     }
-    public int[] getLinearDerivative(){
+    public static int[] getLinearDerivative(){
         int[] linearDerivative = {ildcol, ildm, ildb};
         return linearDerivative;
     }
-    public int[] getQuadraticDerivative(){
+    public static int[] getQuadraticDerivative(){
         int[] quadraticDerivative = {iqdcol, iqda, iqdb, iqdc};
         return quadraticDerivative;
     }
-    public int[] getCircular(){
+    public static int[] getCircular(){
         int[] circular = {iccol, icr, ica, icb};
         return circular;
     }
-    public int[] getTrigFunction(){
+    public static int[] getTrigFunction(){
         int[] trig = {itcol, ita, itb, itsct};
         return trig;
     }
@@ -257,6 +257,7 @@ public class IndependentProject implements ActionListener {
             verticalWindow.add(colL);
             verticalWindow.add(vcol);
             verticalWindow.setVisible(true);
+
         }
         if(e.getSource().equals(horizontal)){
             JFrame horizontalWindow = new JFrame("Horizontal");
@@ -356,32 +357,32 @@ public class IndependentProject implements ActionListener {
             trigWindow.setVisible(true);
         }
         if(e.getSource().equals(graph)){
-            int ivc = Integer.parseInt(vc.getText());
-            int ihc = Integer.parseInt(hc.getText());
-            int ilm = Integer.parseInt(lm.getText());
-            int ilb = Integer.parseInt(lb.getText());
-            int iqa = Integer.parseInt(qa.getText());
-            int iqb = Integer.parseInt(qb.getText());
-            int iqc = Integer.parseInt(qc.getText());
-            int ildm = Integer.parseInt(ldm.getText());
-            int ildb = Integer.parseInt(ldb.getText());
-            int iqda = Integer.parseInt(qda.getText());
-            int iqdb = Integer.parseInt(qdb.getText());
-            int iqdc = Integer.parseInt(qdc.getText());
-            int icr = Integer.parseInt(cr.getText());
-            int ica = Integer.parseInt(ca.getText());
-            int icb = Integer.parseInt(cb.getText());
-            int ita = Integer.parseInt(ta.getText());
-            int itsct = Integer.parseInt(tsct.getText());
-            int itb = Integer.parseInt(tb.getText());
-            int ivcol = Integer.parseInt(vcol.getText());
-            int ihcol = Integer.parseInt(hcol.getText());
-            int ilcol = Integer.parseInt(lcol.getText());
-            int iqcol = Integer.parseInt(qcol.getText());
-            int ildcol = Integer.parseInt(ldcol.getText());
-            int iqdcol = Integer.parseInt(qdcol.getText());
-            int iccol = Integer.parseInt(ccol.getText());
-            int itcol = Integer.parseInt(tcol.getText());
+            ivc = Integer.parseInt(vc.getText());
+            ihc = Integer.parseInt(hc.getText());
+            ilm = Integer.parseInt(lm.getText());
+            ilb = Integer.parseInt(lb.getText());
+            iqa = Integer.parseInt(qa.getText());
+            iqb = Integer.parseInt(qb.getText());
+            iqc = Integer.parseInt(qc.getText());
+            ildm = Integer.parseInt(ldm.getText());
+            ildb = Integer.parseInt(ldb.getText());
+            iqda = Integer.parseInt(qda.getText());
+            iqdb = Integer.parseInt(qdb.getText());
+            iqdc = Integer.parseInt(qdc.getText());
+            icr = Integer.parseInt(cr.getText());
+            ica = Integer.parseInt(ca.getText());
+            icb = Integer.parseInt(cb.getText());
+            ita = Integer.parseInt(ta.getText());
+            itsct = Integer.parseInt(tsct.getText());
+            itb = Integer.parseInt(tb.getText());
+            ivcol = Integer.parseInt(vcol.getText());
+            ihcol = Integer.parseInt(hcol.getText());
+            ilcol = Integer.parseInt(lcol.getText());
+            iqcol = Integer.parseInt(qcol.getText());
+            ildcol = Integer.parseInt(ldcol.getText());
+            iqdcol = Integer.parseInt(qdcol.getText());
+            iccol = Integer.parseInt(ccol.getText());
+            itcol = Integer.parseInt(tcol.getText());
         }
     }
 }
