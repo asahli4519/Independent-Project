@@ -57,7 +57,7 @@ public class IndependentProject implements ActionListener {
     JTextField ccol = new JTextField();
     JTextField tcol = new JTextField();
 
-    // Adds buttons to window in specific order:
+    //All buttons
     JButton vertical = new JButton("Vertical Line: x = c"); // Creates vertical graph button
     JButton horizontal = new JButton("Horizontal Line: y = c"); // Creates horizontal graph button
     JButton linear = new JButton("Linear Graph: y = mx + b"); // Creates linear graph button
@@ -68,6 +68,7 @@ public class IndependentProject implements ActionListener {
     JButton trig = new JButton("Trigonometric Function: y = a(sin/cos/tan)bx"); // Creates trig button
     JTextField label = new JTextField("Choice what kind of equation you want to graph");//Sets the label/directions at the top of page
     JButton graph = new JButton("Graph");//Creates the graph button
+    //Sets up all variables
     static int ivc;
     static int ihc;
     static int ilm;
@@ -94,6 +95,7 @@ public class IndependentProject implements ActionListener {
     static int iqdcol;
     static int iccol;
     static int itcol;
+    //Uses booleans to check if buttons have been clicked
     boolean clickedvert = false;
     boolean clickedhori = false;
     boolean clickedline = false;
@@ -102,6 +104,7 @@ public class IndependentProject implements ActionListener {
     boolean clickedqude = false;
     boolean clickedcirc = false;
     boolean clickedtrig = false;
+
        /*
         Unused containers for pop-ups
         Container linearContainer = new Container();
@@ -128,12 +131,12 @@ public class IndependentProject implements ActionListener {
         //MyPanel test = new JPanel;
         // Sets up JFrame window:
         JFrame window = new JFrame("Calculator");
-        window.setSize(800,800);
+        window.setSize(800, 800);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setLayout(new BorderLayout());
         Container labelContainer = new Container();
         Container mainContainer = new Container();
-        labelContainer.setLayout(new GridLayout(2,1));
+        labelContainer.setLayout(new GridLayout(2, 1));
         mainContainer.setLayout(new GridLayout(4, 2));
         window.add(labelContainer, BorderLayout.NORTH);
         window.add(mainContainer, BorderLayout.CENTER);
@@ -173,8 +176,9 @@ public class IndependentProject implements ActionListener {
 
         //sets window visible
         window.setVisible(true);
-        //Get methods for moving values to graphing class
     }
+
+        //Get methods for moving values to graphing class
     public static int[] getVertical(){
         int[] vertical = {ivcol, ivc};
         return vertical;
@@ -247,6 +251,7 @@ public class IndependentProject implements ActionListener {
         tsct.setFont(new Font("Sansferif", Font.PLAIN, 15));
         tb.setFont(new Font("Sansferif", Font.PLAIN, 30));
 
+        //sets up new windows depending on what buttons are pressed.
         if(e.getSource().equals(vertical)){
             JFrame verticalWindow = new JFrame("Vertical");
             verticalWindow.setSize(200,200);
@@ -363,6 +368,7 @@ public class IndependentProject implements ActionListener {
             trigWindow.setVisible(true);
             clickedtrig = true;
         }
+        //checks if the graph button is pressed and takes the values and assigns them variables.
         if(e.getSource().equals(graph)){
             if(clickedvert) {
                 ivc = Integer.parseInt(vc.getText());
