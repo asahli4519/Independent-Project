@@ -415,7 +415,6 @@ public class IndependentProject implements ActionListener {
 
             // Calls GraphingPlane method:
             GraphingPlane.main(null);
-
         }
     }
 }
