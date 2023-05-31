@@ -56,6 +56,8 @@ public class IndependentProject implements ActionListener {
     JTextField qdcol = new JTextField();
     JTextField ccol = new JTextField();
     JTextField tcol = new JTextField();
+    JTextField num1 = new JTextField();
+    JTextField num2 = new JTextField();
 
     //All buttons
     JButton vertical = new JButton("Vertical Line: x = c"); // Creates vertical graph button
@@ -66,8 +68,14 @@ public class IndependentProject implements ActionListener {
     JButton quadraticDerivative = new JButton("Quadratic Derivative Graph: y' = ax² + bx + c"); // Creates quadratic derivative graph button (linear graph)
     JButton circle = new JButton("Circular Graph: r² = (x - a)² + (y - b)²"); // Creates circular graph button
     JButton trig = new JButton("Trigonometric Function: y = a(sin/cos/tan)bx"); // Creates trig button
-    JTextField label = new JTextField("Choice what kind of equation you want to graph");//Sets the label/directions at the top of page
+    JLabel label = new JLabel("Choice what kind of equation you want to graph");//Sets the label/directions at the top of page
     JButton graph = new JButton("Graph");//Creates the graph button
+    JButton addButton = new JButton("Addition");
+    JButton subButton = new JButton("Subtraction");
+    JButton multButton = new JButton("Multiplication");
+    JButton divButton = new JButton("Division");
+    JButton modButton = new JButton("Mod");
+    JLabel answer = new JLabel("Answer goes here");
     //Sets up all variables
     static int ivc;
     static int ihc;
@@ -95,6 +103,7 @@ public class IndependentProject implements ActionListener {
     static int iqdcol;
     static int iccol;
     static int itcol;
+
     //Uses booleans to check if buttons have been clicked
     boolean clickedvert = false;
     boolean clickedhori = false;
@@ -130,7 +139,7 @@ public class IndependentProject implements ActionListener {
 
         //MyPanel test = new JPanel;
         // Sets up JFrame window:
-        JFrame window = new JFrame("Calculator");
+        JFrame window = new JFrame("Graphing Calculator");
         window.setSize(800, 800);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setLayout(new BorderLayout());
@@ -140,6 +149,16 @@ public class IndependentProject implements ActionListener {
         mainContainer.setLayout(new GridLayout(4, 2));
         window.add(labelContainer, BorderLayout.NORTH);
         window.add(mainContainer, BorderLayout.CENTER);
+
+        //Regular Calculator
+        /*JFrame calc = new JFrame("Calculator");
+        window.setSize(800, 800);
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setLayout(new GridLayout(3,2));
+        num1.setFont(new Font("Sansferif", Font.PLAIN, 42));
+        num1.setHorizontalAlignment(0);
+        num2.setFont(new Font("Sansferif", Font.PLAIN, 42));
+        num2.setHorizontalAlignment(0);*/
 
         // Adds buttons to window in specific order:
         mainContainer.add(vertical);
@@ -152,6 +171,14 @@ public class IndependentProject implements ActionListener {
         mainContainer.add(trig);
         labelContainer.add(label);
         labelContainer.add(graph);
+        calc.add(num1);
+        calc.add(num2);
+        calc.add(addButton);
+        calc.add(subButton);
+        calc.add(multButton);
+        calc.add(divButton);
+        calc.add(modButton);
+        calc.add(answer);
 
         // Adds actionlisteners to buttons so input can be detected:
         vertical.addActionListener(this);
@@ -163,6 +190,11 @@ public class IndependentProject implements ActionListener {
         circle.addActionListener(this);
         trig.addActionListener(this);
         graph.addActionListener(this);
+        addButton.addActionListener(this);
+        subButton.addActionListener(this);
+        multButton.addActionListener(this);
+        divButton.addActionListener(this);
+        modButton.addActionListener(this);
 
         // Sets button colors:
         vertical.setBackground(Color.white);
@@ -173,9 +205,11 @@ public class IndependentProject implements ActionListener {
         quadraticDerivative.setBackground(Color.white);
         circle.setBackground(Color.lightGray);
         trig.setBackground(Color.lightGray);
+        graph.setBackground(Color.lightGray);
 
         //sets window visible
         window.setVisible(true);
+        calc.setVisible(true);
     }
 
         //Get methods for moving values to graphing class
@@ -224,32 +258,40 @@ public class IndependentProject implements ActionListener {
         JLabel r = new JLabel("r = ");
         JLabel colL = new JLabel("<html>Color<br>1/Blue<br>2/Green<br>3/Red<br>4/Orange = </html>");
         JLabel trigFunc = new JLabel("<html>trig function<br>0sin,1cos,2tan) = </html>");
-        x.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        b.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        m.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        c.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        a.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        r.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        colL.setFont(new Font("Sansferif", Font.PLAIN, 10));
-        trigFunc.setFont(new Font("Sansferif", Font.PLAIN, 10));
-        vc.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        hc.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        lm.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        lb.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        qa.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        qb.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        qc.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        ldm.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        ldb.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        qda.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        qdb.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        qdc.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        cr.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        ca.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        cb.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        ta.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        tsct.setFont(new Font("Sansferif", Font.PLAIN, 15));
-        tb.setFont(new Font("Sansferif", Font.PLAIN, 30));
+        x.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        b.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        m.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        c.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        a.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        r.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        colL.setFont(new Font("Sanserif", Font.PLAIN, 10));
+        trigFunc.setFont(new Font("Sanserif", Font.PLAIN, 10));
+        vc.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        hc.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        lm.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        lb.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        qa.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        qb.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        qc.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        ldm.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        ldb.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        qda.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        qdb.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        qdc.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        cr.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        ca.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        cb.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        ta.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        tsct.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        tb.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        vcol.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        hcol.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        lcol.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        qcol.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        ldcol.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        qdcol.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        ccol.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        tcol.setFont(new Font("Sanserif", Font.PLAIN, 30));
 
         // Sets up new windows depending on what buttons are pressed.
         if(e.getSource().equals(vertical)){
