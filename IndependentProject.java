@@ -251,7 +251,7 @@ public class IndependentProject implements ActionListener {
         tsct.setFont(new Font("Sansferif", Font.PLAIN, 15));
         tb.setFont(new Font("Sansferif", Font.PLAIN, 30));
 
-        //sets up new windows depending on what buttons are pressed.
+        // Sets up new windows depending on what buttons are pressed.
         if(e.getSource().equals(vertical)){
             JFrame verticalWindow = new JFrame("Vertical");
             verticalWindow.setSize(200,200);
@@ -368,7 +368,7 @@ public class IndependentProject implements ActionListener {
             trigWindow.setVisible(true);
             clickedtrig = true;
         }
-        //checks if the graph button is pressed and takes the values and assigns them variables.
+        // Checks if the graph button is pressed and takes the values and assigns them variables:
         if(e.getSource().equals(graph)){
             if(clickedvert) {
                 ivc = Integer.parseInt(vc.getText());

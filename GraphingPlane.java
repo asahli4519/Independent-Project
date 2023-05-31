@@ -64,20 +64,38 @@ class MyPanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        g.setColor(Color.gray);
-
         // AXES:
+
+        g.setColor(Color.lightGray);
+
+        // Draws y-grid:
+        for (int x = 0; x < dimensions; x += scale) {
+            for (int i = 0; i < dimensions; i++) {
+                g.fillRect(x, i, 1, 1);
+                g.drawRect(x, i, 1, 1);
+            }
+        }
+
+        // Draws x-grid:
+        for (int x = 0; x < dimensions; x += scale) {
+            for (int i = 0; i < dimensions; i++) {
+                g.fillRect(i, x, 1, 1);
+                g.drawRect(i, x, 1, 1);
+            }
+        }
+
+        g.setColor(Color.black);
 
         // Draws y-axis:
         for (int i = 0; i < dimensions; i++) {
-            g.fillRect(dimensions / 2, i, 1, 1);
-            g.drawRect(dimensions / 2, i, 1, 1);
+            g.fillRect(dimensions / 2, i, 3, 3);
+            g.drawRect(dimensions / 2, i, 3, 3);
         }
 
         // Draws x-axis:
         for (int i = 0; i < dimensions; i++) {
-            g.fillRect(i, dimensions / 2, 1, 1);
-            g.drawRect(i, dimensions / 2, 1, 1);
+            g.fillRect(i, dimensions / 2, 3, 3);
+            g.drawRect(i, dimensions / 2, 3, 3);
         }
 
         // Draws scale values on ends of axes:
