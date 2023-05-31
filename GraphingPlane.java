@@ -120,13 +120,13 @@ class MyPanel extends JPanel {
         if (verticalLine[0] == 1) {
             g.setColor(Color.BLUE);
         }
-        else if (color == 2) {
+        else if (verticalLine[0] == 2) {
             g.setColor(Color.GREEN);
         }
-        else if (color == 3) {
+        else if (verticalLine[0] == 3) {
             g.setColor(Color.RED);
         }
-        else if (color == 4) {
+        else if (verticalLine[0] == 4) {
             g.setColor(Color.ORANGE);
         }
         else {
@@ -135,23 +135,23 @@ class MyPanel extends JPanel {
 
         // Graphs vertical line:
         for (int i = 0; i < dimensions; i++) { // Draws y-axis
-            g.fillRect(dimensions / 2 + vc * scale, i, POINTWIDTH, POINTHEIGHT);
-            g.drawRect(dimensions / 2 + vc * scale, i, POINTWIDTH, POINTHEIGHT);
+            g.fillRect(dimensions / 2 + verticalLine[1] * scale, i, POINTWIDTH, POINTHEIGHT);
+            g.drawRect(dimensions / 2 + verticalLine[1] * scale, i, POINTWIDTH, POINTHEIGHT);
         }
 
         // HORIZONTAL LINE:
 
         // Decodes color for graph:
-        if (color == 1) {
+        if (horizontalLine[0] == 1) {
             g.setColor(Color.BLUE);
         }
-        else if (color == 2) {
+        else if (horizontalLine[0] == 2) {
             g.setColor(Color.GREEN);
         }
-        else if (color == 3) {
+        else if (horizontalLine[0] == 3) {
             g.setColor(Color.RED);
         }
-        else if (color == 4) {
+        else if (horizontalLine[0] == 4) {
             g.setColor(Color.ORANGE);
         }
         else {
@@ -160,23 +160,23 @@ class MyPanel extends JPanel {
 
         // Graphs horizontal line:
         for (int i = 0; i < dimensions; i++) { // Draws x-axis
-            g.fillRect(i, dimensions / 2 - hc * scale, POINTWIDTH, POINTHEIGHT);
-            g.drawRect(i, dimensions / 2 - hc * scale, POINTWIDTH, POINTHEIGHT);
+            g.fillRect(i, dimensions / 2 - horizontalLine[1] * scale, POINTWIDTH, POINTHEIGHT);
+            g.drawRect(i, dimensions / 2 - horizontalLine[1] * scale, POINTWIDTH, POINTHEIGHT);
         }
 
         // LINEAR GRAPH:
 
         // Decodes color for graph:
-        if (color == 1) {
+        if (linearGraph[0] == 1) {
             g.setColor(Color.BLUE);
         }
-        else if (color == 2) {
+        else if (linearGraph[0] == 2) {
             g.setColor(Color.GREEN);
         }
-        else if (color == 3) {
+        else if (linearGraph[0] == 3) {
             g.setColor(Color.RED);
         }
-        else if (color == 4) {
+        else if (linearGraph[0] == 4) {
             g.setColor(Color.ORANGE);
         }
         else {
@@ -186,23 +186,23 @@ class MyPanel extends JPanel {
         // Graphs linear graph:
         for (int x = 0; x < dimensions; x++) { // Repeats for each pixel in plane length
             point = (x - (double) (dimensions / 2)) / scale; // Converts value of each pixel on plane to a scaled-down version for the graph
-            g.fillRect((x), - (int) (point * scale * lm) + (dimensions / 2) - (lb * scale), POINTWIDTH, POINTHEIGHT);
-            g.drawRect((x), - (int) (point * scale * lm) + (dimensions / 2) - (lb * scale), POINTWIDTH, POINTHEIGHT);
+            g.fillRect((x), - (int) (point * scale * linearGraph[1]) + (dimensions / 2) - (linearGraph[2] * scale), POINTWIDTH, POINTHEIGHT);
+            g.drawRect((x), - (int) (point * scale * linearGraph[1]) + (dimensions / 2) - (linearGraph[2] * scale), POINTWIDTH, POINTHEIGHT);
         }
 
         // QUADRATIC GRAPH:
 
         // Decodes color for graph:
-        if (color == 1) {
+        if (quadraticDerivative[0] == 1) {
             g.setColor(Color.BLUE);
         }
-        else if (color == 2) {
+        else if (quadraticDerivative[0] == 2) {
             g.setColor(Color.GREEN);
         }
-        else if (color == 3) {
+        else if (quadraticDerivative[0] == 3) {
             g.setColor(Color.RED);
         }
-        else if (color == 4) {
+        else if (quadraticDerivative[0] == 4) {
             g.setColor(Color.ORANGE);
         }
         else {

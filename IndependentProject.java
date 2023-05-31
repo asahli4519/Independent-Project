@@ -406,6 +406,10 @@ public class IndependentProject implements ActionListener {
                 itsct = Integer.parseInt(tsct.getText());
                 itcol = Integer.parseInt(tcol.getText());
             }
+
+            // Calls GraphingPlane method:
+            GraphingPlane.main(null);
+
         }
     }
 }
