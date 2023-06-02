@@ -75,7 +75,7 @@ public class IndependentProject implements ActionListener {
     JButton multButton = new JButton("Multiplication");
     JButton divButton = new JButton("Division");
     JButton modButton = new JButton("Mod");
-    JLabel answer = new JLabel("Answer goes here");
+    JLabel answer = new JLabel("Answer: ");
     //Sets up all variables
     static int ivc;
     static int ihc;
@@ -136,8 +136,6 @@ public class IndependentProject implements ActionListener {
     // Constructor:
     public IndependentProject() {
 
-
-        //MyPanel test = new JPanel;
         // Sets up JFrame window:
         JFrame window = new JFrame("Graphing Calculator");
         window.setSize(800, 800);
@@ -151,14 +149,10 @@ public class IndependentProject implements ActionListener {
         window.add(mainContainer, BorderLayout.CENTER);
 
         //Regular Calculator
-        /*JFrame calc = new JFrame("Calculator");
-        window.setSize(800, 800);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setLayout(new GridLayout(3,2));
-        num1.setFont(new Font("Sansferif", Font.PLAIN, 42));
-        num1.setHorizontalAlignment(0);
-        num2.setFont(new Font("Sansferif", Font.PLAIN, 42));
-        num2.setHorizontalAlignment(0);*/
+        JFrame calc = new JFrame("Calculator");
+        calc.setSize(400, 600);
+        calc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        calc.setLayout(new GridLayout(4,2));
 
         // Adds buttons to window in specific order:
         mainContainer.add(vertical);
@@ -292,6 +286,8 @@ public class IndependentProject implements ActionListener {
         qdcol.setFont(new Font("Sanserif", Font.PLAIN, 30));
         ccol.setFont(new Font("Sanserif", Font.PLAIN, 30));
         tcol.setFont(new Font("Sanserif", Font.PLAIN, 30));
+        num1.setFont(new Font("Sansferif", Font.PLAIN, 30));
+        num2.setFont(new Font("Sansferif", Font.PLAIN, 30));
 
         // Sets up new windows depending on what buttons are pressed.
         if(e.getSource().equals(vertical)){
