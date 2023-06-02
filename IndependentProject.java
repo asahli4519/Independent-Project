@@ -75,6 +75,7 @@ public class IndependentProject implements ActionListener {
     JButton multButton = new JButton("Multiplication");
     JButton divButton = new JButton("Division");
     JButton modButton = new JButton("Mod");
+    JButton ranButton = new JButton("Random");
     JLabel answer = new JLabel("Answer: ");
     //Sets up all variables
     static int ivc;
@@ -150,9 +151,17 @@ public class IndependentProject implements ActionListener {
 
         //Regular Calculator
         JFrame calc = new JFrame("Calculator");
-        calc.setSize(400, 600);
+        calc.setSize(400, 400);
         calc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         calc.setLayout(new GridLayout(4,2));
+        Container mainCalcContainer = new Container();
+        Container inputCalcContainer = new Container();
+        //Container outputCalcContainer = new Container();
+        mainCalcContainer.setLayout(new GridLayout(3, 2));
+        inputCalcContainer.setLayout(new GridLayout(1, 2));
+        //outputCalcContainer.setLayout(new BorderLayout());
+        num1.setFont(new Font("Sansferif", Font.PLAIN, 30));
+        num2.setFont(new Font("Sansferif", Font.PLAIN, 30));
 
         // Adds buttons to window in specific order:
         mainContainer.add(vertical);
@@ -165,14 +174,19 @@ public class IndependentProject implements ActionListener {
         mainContainer.add(trig);
         labelContainer.add(label);
         labelContainer.add(graph);
-        calc.add(num1);
-        calc.add(num2);
-        calc.add(addButton);
-        calc.add(subButton);
-        calc.add(multButton);
-        calc.add(divButton);
-        calc.add(modButton);
+        inputCalcContainer.add(num1);
+        inputCalcContainer.add(num2);
+        mainCalcContainer.add(addButton);
+        mainCalcContainer.add(subButton);
+        mainCalcContainer.add(multButton);
+        mainCalcContainer.add(divButton);
+        mainCalcContainer.add(modButton);
+        mainCalcContainer.add(ranButton);
         calc.add(answer);
+        //outputCalcContainer.add(answer);
+        calc.add(inputCalcContainer);
+        calc.add(mainCalcContainer);
+        //calc.add(outputCalcContainer, BorderLayout.SOUTH);
 
         // Adds actionlisteners to buttons so input can be detected:
         vertical.addActionListener(this);
@@ -189,6 +203,7 @@ public class IndependentProject implements ActionListener {
         multButton.addActionListener(this);
         divButton.addActionListener(this);
         modButton.addActionListener(this);
+        ranButton.addActionListener(this);
 
         // Sets button colors:
         vertical.setBackground(Color.white);
@@ -200,6 +215,15 @@ public class IndependentProject implements ActionListener {
         circle.setBackground(Color.lightGray);
         trig.setBackground(Color.lightGray);
         graph.setBackground(Color.lightGray);
+        num1.setBackground(Color.lightGray);
+        num2.setBackground(Color.lightGray);
+        addButton.setBackground(Color.white);
+        subButton.setBackground(Color.white);
+        multButton.setBackground(Color.white);
+        divButton.setBackground(Color.white);
+        modButton.setBackground(Color.white);
+        ranButton.setBackground(Color.white);
+        answer.setBackground(Color.lightGray);
 
         //sets window visible
         window.setVisible(true);
@@ -238,6 +262,44 @@ public class IndependentProject implements ActionListener {
     public static int[] getTrigFunction(){
         int[] trig = {itcol, ita, itb, itsct};
         return trig;
+    }
+    public double add(int num1, int num2){
+        double answer = (double) num1 + num2;
+        return answer;
+    }
+    public double subtract(int num1, int num2){
+        double answer = (double) num1 - num2;
+        return answer;
+    }
+    public double multiply(int num1, int num2){
+        double answer = (double) num1 * num2;
+        return answer;
+    }
+    public double divide(int num1, int num2){
+        double answer = (double) num1 / num2;
+        return answer;
+    }
+    public double mod(int num1, int num2){
+        double answer = (double) num1 % num2;
+        return answer;
+    }
+    public double ran(int num1, int num2){
+        int ranNum = (int)(Math.random() * 5);
+        if (ranNum == 0){
+            return add(num1, num2);
+        }
+        else if (ranNum == 1){
+            return subtract(num1, num2);
+        }
+        else if (ranNum == 2){
+            return multiply(num1, num2);
+        }
+        else if (ranNum == 3){
+            return divide(num1, num2);
+        }
+        else {
+            return mod(num1, num2);
+        }
     }
 
 
@@ -286,8 +348,6 @@ public class IndependentProject implements ActionListener {
         qdcol.setFont(new Font("Sanserif", Font.PLAIN, 30));
         ccol.setFont(new Font("Sanserif", Font.PLAIN, 30));
         tcol.setFont(new Font("Sanserif", Font.PLAIN, 30));
-        num1.setFont(new Font("Sansferif", Font.PLAIN, 30));
-        num2.setFont(new Font("Sansferif", Font.PLAIN, 30));
 
         // Sets up new windows depending on what buttons are pressed.
         if(e.getSource().equals(vertical)){
@@ -453,6 +513,36 @@ public class IndependentProject implements ActionListener {
 
             // Calls GraphingPlane method:
             GraphingPlane.main(null);
+        }
+        if (e.getSource().equals(addButton)){
+            int numA = Integer.parseInt(num1.getText());
+            int numB = Integer.parseInt(num2.getText());
+            answer.setText(add(numA,numB) + "");
+        }
+        if (e.getSource().equals(subButton)){
+            int numA = Integer.parseInt(num1.getText());
+            int numB = Integer.parseInt(num2.getText());
+            answer.setText(subtract(numA,numB) + "");
+        }
+        if (e.getSource().equals(multButton)){
+            int numA = Integer.parseInt(num1.getText());
+            int numB = Integer.parseInt(num2.getText());
+            answer.setText(multiply(numA,numB) + "");
+        }
+        if (e.getSource().equals(divButton)){
+            int numA = Integer.parseInt(num1.getText());
+            int numB = Integer.parseInt(num2.getText());
+            answer.setText(divide(numA,numB) + "");
+        }
+        if (e.getSource().equals(modButton)){
+            int numA = Integer.parseInt(num1.getText());
+            int numB = Integer.parseInt(num2.getText());
+            answer.setText(mod(numA,numB) + "");
+        }
+        if (e.getSource().equals(ranButton)){
+            int numA = Integer.parseInt(num1.getText());
+            int numB = Integer.parseInt(num2.getText());
+            answer.setText(ran(numA,numB) + "");
         }
     }
 }
