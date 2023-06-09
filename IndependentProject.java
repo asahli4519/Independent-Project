@@ -58,6 +58,8 @@ public class IndependentProject implements ActionListener {
     JTextField tcol = new JTextField();
     JTextField num1 = new JTextField();
     JTextField num2 = new JTextField();
+    JTextField alex = new JTextField();
+    JTextField Ava = new JTextField();
 
     //All buttons
     JButton vertical = new JButton("Vertical Line: x = c"); // Creates vertical graph button
@@ -519,8 +521,18 @@ public class IndependentProject implements ActionListener {
         }
         int numA;
         int numB;
-        if (e.getSource().equals(retAnswer) && (num1.getText() == "alex" || num2.getText() == "alex")){
-            System.out.println("hello");
+        if (e.getSource().equals(retAnswer) && (num1.getText().equals("alex") || num2.getText().equals("alex"))){
+            answer.setText("Alex was MVP and Ava sucks");
+            //Easter Egg Windows
+            JFrame EG1 = new JFrame("Easter Egg");
+            EG1.setSize(200, 200);
+            EG1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            EG1.setLayout(new GridLayout(2,1));
+            EG1.add(alex);
+            EG1.add(Ava);
+            alex.setText("<html>A co-creator of this wonderful </html>calculator and a true G");
+            Ava.setText("<html>A person who dipped on everyone in </html>the class because she didn't care");
+            EG1.setVisible(true);
         }
         else {
             if (e.getSource().equals(addButton)){
